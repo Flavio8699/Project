@@ -79,21 +79,40 @@ Vagrant.configure("2") do |config|
   # documentation for more information about their specific syntax and use.	
   
   config.vm.provision "shell", inline: <<-SHELL
+     export DEBIAN_FRONTEND="noninteractive"
      sudo apt-get update
      
+     echo "Update MySql repository"
+     sudo apt-get install -y debconf-utils vim curl
+     sudo debconf-set-selections <<< 'mysql-apt-config mysql-apt-config/select-server select mysql-8.0'
+     wget https://dev.mysql.com/get/mysql-apt-config_0.8.10-1_all.deb
+     sudo -E dpkg -i mysql-apt-config_0.8.10-1_all.deb
+     sudo apt-get update
+     rm mysql-apt-config_0.8.10-1_all.deb
+
+     echo "Install MySql server"
+     sudo debconf-set-selections <<< 'mysql-community-server mysql-community-server/re-root-pass password 12345678'
+     sudo debconf-set-selections <<< 'myvsql-community-server mysql-community-server/root-pass password 12345678'
+     sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password 12345678"
+     sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password 12345678"
+     sudo -E apt-get -y install mysql-server --allow-unauthenticated
+
      echo "Install default Java and OpenJDK"
      sudo apt install default-jre -y
      sudo apt-get install openjdk-8-jdk -y
-     
-     echo "Install MySql server"
-     export DEBIAN_FRONTEND="noninteractive"
-     sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password 12345678"
-     sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password 12345678"
-     sudo apt-get install -y mysql-server
+
+     echo "Install Gradle version"
+     VERSION=6.7.1
+     wget https://services.gradle.org/distributions/gradle-${VERSION}-bin.zip -P /tmp
+     sudo apt install unzip
+     sudo unzip -d /opt/gradle /tmp/gradle-${VERSION}-bin.zip
+     echo 'export GRADLE_HOME=/opt/gradle/gradle-6.7.1' > /etc/profile.d/gradle.sh
+     echo 'export PATH=${GRADLE_HOME}/bin:${PATH}' >> /etc/profile.d/gradle.sh
+     sudo chmod +x /etc/profile.d/gradle.sh
+     source /etc/profile.d/gradle.sh
      SHELL
 
       
   
 end
-  
   
