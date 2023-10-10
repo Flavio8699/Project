@@ -110,9 +110,15 @@ Vagrant.configure("2") do |config|
      echo 'export PATH=${GRADLE_HOME}/bin:${PATH}' >> /etc/profile.d/gradle.sh
      sudo chmod +x /etc/profile.d/gradle.sh
      source /etc/profile.d/gradle.sh
+
+     echo "Install Node 15.14.0 and NPM 7.7.6"
+     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+     export NVM_DIR="$HOME/.nvm"
+     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+     nvm install 15.14.0
      SHELL
 
       
   
 end
-  
