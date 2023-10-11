@@ -68,7 +68,7 @@ Vagrant.configure("2") do |config|
         #vb.memory = "24284"
 
 
-    	vb.cpus = 2
+    	vb.cpus = 4
    end
   
   # View the documentation for the provider you are using for more
@@ -112,24 +112,42 @@ Vagrant.configure("2") do |config|
      source /etc/profile.d/gradle.sh
 
      echo "Install Node 15.14.0 and NPM 7.7.6"
-    #  sudo apt-get install -y curl
-    #  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+    #  sudo snap remove curl
+    #  sudo apt install curl
+    #  sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+
+    # #  sudo apt-get install -y curl
+    # #  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
     #  echo 'export NVM_DIR="$HOME/.nvm"' > /etc/profile.d/nvm.sh
+    #  echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> /etc/profile.d/nvm.sh
+    #  echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> /etc/profile.d/nvm.sh
+    #  sudo chmod +x /etc/profile.d/nvm.sh
+    #  source /etc/profile.d/nvm.sh
+    #  sudo source ~/.nvm/nvm.sh
+    #  sudo nvm install 15.14.0
+    #  sudo npm install node-sass@latest
+
+    #  wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh
+    #  sudo chmod +x install.sh
+    #  sudo ./install.sh
+    #  echo 'export NVM_DIR="/root/.nvm"' > /etc/profile.d/nvm.sh
     #  echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> /etc/profile.d/nvm.sh
     #  echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> /etc/profile.d/nvm.sh
     #  sudo chmod +x /etc/profile.d/nvm.sh
     #  source /etc/profile.d/nvm.sh
     #  nvm install 15.14.0
 
-    #  wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh
-    #  sudo chmod +x install.sh
-    #  sudo ./install.sh
-    #  echo 'export NVM_DIR="$HOME/.nvm"' > /etc/profile.d/nvm.sh
-    #  echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> /etc/profile.d/nvm.sh
-    #  echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> /etc/profile.d/nvm.sh
-    #  sudo chmod +x /etc/profile.d/nvm.sh
-    #  source /etc/profile.d/nvm.sh
-    #  nvm install 15.14.0
+     sudo apt-get install -y curl
+     sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash # | sudo -u vagrant -i bash
+     echo 'export NVM_DIR="$HOME/.nvm"' > /etc/profile.d/nvm.sh
+     echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> /etc/profile.d/nvm.sh
+     echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> /etc/profile.d/nvm.sh
+     sudo chmod +x /etc/profile.d/nvm.sh
+     source /etc/profile.d/nvm.sh
+     cd /lu.uni.e4l.platform.frontend.dev
+     nvm install 15.14.0
+     npm install node-sass@latest
+     npm i && npm start
 
      SHELL
 
