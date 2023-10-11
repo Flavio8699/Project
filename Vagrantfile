@@ -92,7 +92,7 @@ Vagrant.configure("2") do |config|
 
      echo "Install MySql server"
      sudo debconf-set-selections <<< 'mysql-community-server mysql-community-server/re-root-pass password 12345678'
-     sudo debconf-set-selections <<< 'myvsql-community-server mysql-community-server/root-pass password 12345678'
+     sudo debconf-set-selections <<< 'mysql-community-server mysql-community-server/root-pass password 12345678'
      sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password 12345678"
      sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password 12345678"
      sudo -E apt-get -y install mysql-server --allow-unauthenticated
@@ -112,11 +112,25 @@ Vagrant.configure("2") do |config|
      source /etc/profile.d/gradle.sh
 
      echo "Install Node 15.14.0 and NPM 7.7.6"
-     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
-     export NVM_DIR="$HOME/.nvm"
-     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-     nvm install 15.14.0
+    #  sudo apt-get install -y curl
+    #  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+    #  echo 'export NVM_DIR="$HOME/.nvm"' > /etc/profile.d/nvm.sh
+    #  echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> /etc/profile.d/nvm.sh
+    #  echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> /etc/profile.d/nvm.sh
+    #  sudo chmod +x /etc/profile.d/nvm.sh
+    #  source /etc/profile.d/nvm.sh
+    #  nvm install 15.14.0
+
+    #  wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh
+    #  sudo chmod +x install.sh
+    #  sudo ./install.sh
+    #  echo 'export NVM_DIR="$HOME/.nvm"' > /etc/profile.d/nvm.sh
+    #  echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> /etc/profile.d/nvm.sh
+    #  echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> /etc/profile.d/nvm.sh
+    #  sudo chmod +x /etc/profile.d/nvm.sh
+    #  source /etc/profile.d/nvm.sh
+    #  nvm install 15.14.0
+
      SHELL
 
       
