@@ -25,6 +25,12 @@ Vagrant.configure("2") do |config|
     # Consfigure a private network for the development environment
     dev.vm.network "private_network", ip: "192.168.33.95"
 
+    config.vm.provision :shell, path: "scripts/update-mysql-repo.sh"
+    config.vm.provision :shell, path: "scripts/install-mysql.sh"
+    config.vm.provision :shell, path: "scripts/install-java.sh"
+    config.vm.provision :shell, path: "scripts/install-gradle.sh"
+    config.vm.provision :shell, path: "scripts/install-node.sh"
+
     # Define the provisioning playbook for the development environment
     dev.vm.provision "ansible" do |ansible|
       ansible.playbook = "./dev-env/playbook/playbook.yml"
