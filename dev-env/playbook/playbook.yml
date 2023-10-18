@@ -4,3 +4,16 @@
   remote_user: vagrant
   become: yes
   become_method: sudo
+
+  vars:
+    vHome: /home/vagrant
+
+  tasks:
+    - name: Copy backend to dev environment
+      copy: src=../../lu.uni.e4l.platform.api.dev dest=/home/vagrant/ mode=0777 # give full rights to user on this directory
+
+    - name: Copy scripts to dev environment
+      copy: src=../dev-scripts dest=/home/vagrant/ mode=0777 # give full rights to user on this directory
+
+    - name: Setup git repository
+      command: sh /home/vagrant/dev-scripts/setup-git.sh
