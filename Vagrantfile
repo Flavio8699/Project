@@ -2,13 +2,28 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
+  # Configuration for the CI server
+  config.vm.define "ci-server" do |ci|
+    ci.vm.box = "ubuntu/xenial64"
+    ci.vm.hostname = "ci-server-e4l"
+
+    # Consfigure a private network for the CI server
+    ci.vm.network "private_network", ip: "192.168.33.94"
+
+    # Define the provisioning playbook for the Ci server
+    ci.vm.provision "ansible" do |ansible|
+      ansible.playbook = "./ci-server/playbook/playbook.yml"
+      ansible.compatibility_mode = "2.0"
+    end
+  end
+
   # Configuration for the development environment
   config.vm.define "dev-env" do |dev|
     dev.vm.box = "ubuntu/xenial64"
     dev.vm.hostname = "dev-env-e4l"
 
     # Consfigure a private network for the development environment
-    dev.vm.network "private_network", ip: "192.168.33.94"
+    dev.vm.network "private_network", ip: "192.168.33.95"
 
     # Define the provisioning playbook for the development environment
     dev.vm.provision "ansible" do |ansible|
@@ -23,7 +38,7 @@ Vagrant.configure("2") do |config|
     stage.vm.hostname = "stage-env-e4l"
 
     # Consfigure a private network for the staging environment
-    stage.vm.network "private_network", ip: "192.168.33.95"
+    stage.vm.network "private_network", ip: "192.168.33.96"
 
     # Define the provisioning playbook for the staging environment
     stage.vm.provision "ansible" do |ansible|
@@ -38,7 +53,7 @@ Vagrant.configure("2") do |config|
     prod.vm.hostname = "prod-env-e4l"
 
     # Consfigure a private network for the production environment
-    prod.vm.network "private_network", ip: "192.168.33.96"
+    prod.vm.network "private_network", ip: "192.168.33.97"
 
     # Define the provisioning playbook for the production environment
     prod.vm.provision "ansible" do |ansible|
@@ -47,27 +62,12 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  # Configuration for the CI server
-  config.vm.define "ci-server" do |ci|
-    ci.vm.box = "ubuntu/xenial64"
-    ci.vm.hostname = "ci-server-e4l"
-
-    # Consfigure a private network for the CI server
-    ci.vm.network "private_network", ip: "192.168.33.97"
-
-    # Define the provisioning playbook for the Ci server
-    ci.vm.provision "ansible" do |ansible|
-      ansible.playbook = "./ci-server/playbook/playbook.yml"
-      ansible.compatibility_mode = "2.0"
-    end
-  end
-
   # Set the environment variable
   ENV['LC_ALL']="en_US.UTF-8"
 
   # Define the shared folders
-  config.vm.synced_folder "lu.uni.e4l.platform.api.dev", "/lu.uni.e4l.platform.api.dev"
-  config.vm.synced_folder "lu.uni.e4l.platform.frontend.dev", "/lu.uni.e4l.platform.frontend.dev"
+  #config.vm.synced_folder "lu.uni.e4l.platform.api.dev", "/lu.uni.e4l.platform.api.dev"
+  #config.vm.synced_folder "lu.uni.e4l.platform.frontend.dev", "/lu.uni.e4l.platform.frontend.dev"
 
   # Set the VM provider and configure the VMs (define memory and cpus)
   config.vm.provider "virtualbox" do |vb|
