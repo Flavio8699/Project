@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export DEBIAN_FRONTEND="noninteractive"
 echo "Update MySql repository"
 sudo apt-get install -y debconf-utils vim curl
 sudo debconf-set-selections <<< 'mysql-apt-config mysql-apt-config/select-server select mysql-8.0'
