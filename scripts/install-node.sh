@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 echo "Install Node 15.14.0 and NPM 7.7.6"
 sudo apt-get install -y curl      

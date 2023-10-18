@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 echo "Install MySql server"
 sudo debconf-set-selections <<< 'mysql-community-server mysql-community-server/re-root-pass password 12345678'

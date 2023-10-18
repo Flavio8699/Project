@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 echo "Install Gradle version"
 VERSION=6.7.1

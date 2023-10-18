@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 echo "Update MySql repository"
 sudo apt-get install -y debconf-utils vim curl
