@@ -12,8 +12,30 @@
     - name: Copy backend to dev environment
       copy: src=../../lu.uni.e4l.platform.api.dev dest=/home/vagrant/ mode=0777 # give full rights to user on this directory
 
-    - name: Copy scripts to dev environment
-      copy: src=../dev-scripts dest=/home/vagrant/ mode=0777 # give full rights to user on this directory
+    - name: Copy dev scripts to dev environment
+      copy: src=../scripts dest=/home/vagrant/ mode=0777 # give full rights to user on this directory
+
+    - name: Rename the scripts folder
+      command: mv /home/vagrant/scripts /home/vagrant/dev-scripts
+      become: yes
+
+    # - name: Copy scripts to dev environment
+    #   copy: src=../../scripts dest=/home/vagrant/ mode=0777 # give full rights to user on this directory
+
+    # - name: Update MySQL repository
+    #   command: sh /home/vagrant/scripts/update-mysql-repo.sh
+
+    # - name: Install MySQL
+    #   command: sh /home/vagrant/scripts/install-mysql.sh
+    
+    # - name: Install Java
+    #   command: sh /home/vagrant/scripts/install-java.sh
+
+    # - name: Install Gradle
+    #   command: sh /home/vagrant/scripts/install-gradle.sh
+
+    # - name: Install Node
+    #   command: sh /home/vagrant/scripts/install-node.sh
 
     - name: Setup git repository
       command: sh /home/vagrant/dev-scripts/setup-git.sh
