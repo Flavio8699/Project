@@ -1,0 +1,33 @@
+# vim: ts=2
+---
+- hosts: all
+  remote_user: vagrant
+  become: yes
+  become_method: sudo
+
+  vars:
+    vHome: /home/vagrant
+
+  tasks:
+    - include_role:
+        name: gitlab
+
+    - include_role:
+        name: docker
+
+    - name: nmap
+      apt:
+        name: nmap
+        state: latest
+
+    - name: Transfer scripts to provision VM
+      copy: src=../scripts dest=/home/vagrant/ mode=0777 # give full rights to user on this directory
+
+    - name: Configure GitLab
+      command: sh /home/vagrant/scripts/gitlab/config.sh
+
+    - name: Configure Docker
+      command: sh /home/vagrant/scripts/docker/config.sh
+
+    - name: Create GitLab repository for the project and setup a runner
+      command: sh /home/vagrant/scripts/gitlab-repository/config.sh
