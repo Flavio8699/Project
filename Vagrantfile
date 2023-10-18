@@ -73,7 +73,7 @@ Vagrant.configure("2") do |config|
 
   # Define the shared folders
   #config.vm.synced_folder "lu.uni.e4l.platform.api.dev", "/lu.uni.e4l.platform.api.dev"
-  #config.vm.synced_folder "lu.uni.e4l.platform.frontend.dev", "/lu.uni.e4l.platform.frontend.dev"
+  config.vm.synced_folder "lu.uni.e4l.platform.frontend.dev", "/lu.uni.e4l.platform.frontend.dev"
 
   # Set the VM provider and configure the VMs (define memory and cpus)
   config.vm.provider "virtualbox" do |vb|
