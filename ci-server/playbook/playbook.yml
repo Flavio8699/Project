@@ -15,11 +15,6 @@
     - include_role:
         name: docker
 
-    - name: nmap
-      apt:
-        name: nmap
-        state: latest
-
     - name: Transfer scripts to provision VM
       copy: src=../scripts dest=/home/vagrant/ mode=0777 # give full rights to user on this directory
 
