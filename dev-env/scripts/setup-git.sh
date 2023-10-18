@@ -11,4 +11,4 @@ git init
 git remote add origin http://192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.api.dev.git
 git add .
 git commit -m "Initial commit"
-git push -u origin master
+git push http://Owner:12345678@192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.api.dev master
