@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Replace external_url
-sudo sed -i "/external_url/c\external_url 'http://192.168.33.9/gitlab'" /etc/gitlab/gitlab.rb
+sudo sed -i "/external_url/c\external_url 'http://192.168.33.97/gitlab'" /etc/gitlab/gitlab.rb
 
 # Replace port
 sudo sed -i "/\# unicorn\['port'\]/c\unicorn\['port'\] = 8088" /etc/gitlab/gitlab.rb
