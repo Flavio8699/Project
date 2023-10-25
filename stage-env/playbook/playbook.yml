@@ -4,3 +4,19 @@
   remote_user: vagrant
   become: yes
   become_method: sudo
+
+  vars:
+    vHome: /home/vagrant
+
+  tasks:
+    - name: Copy stage scripts to stage environment
+      copy: src=../scripts dest=/home/vagrant/ mode=0777 # give full rights to user on this directory
+
+    - name: Rename the scripts folder
+      command: mv /home/vagrant/scripts /home/vagrant/stage-scripts
+
+    - name: Setup artefact repository
+      command: sh /home/vagrant/stage-scripts/setup-artefact-repository.sh
+
+    - name: Setup gitlab runner
+      command: sh /home/vagrant/stage-scripts/setup-gitlab-runner.sh
