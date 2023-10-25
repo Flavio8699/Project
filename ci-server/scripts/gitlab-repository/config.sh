@@ -10,6 +10,9 @@ sudo apt-get install gitlab-runner
 # Get runner token
 registration_token=$(sudo gitlab-rails runner -e production " puts Gitlab::CurrentSettings.current_application_settings.runners_registration_token")
 
+# Save GitLab runner token in shared file
+echo $registration_token > /shared-data/gitlab-runner-token.txt
+
 # Register runner (without tags)
 sudo gitlab-runner register \
     --non-interactive \
