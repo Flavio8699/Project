@@ -46,6 +46,12 @@ Vagrant.configure("2") do |config|
     # Consfigure a private network for the staging environment
     stage.vm.network "private_network", ip: "192.168.33.96"
 
+    stage.vm.provision :shell, path: "scripts/update-mysql-repo.sh"
+    stage.vm.provision :shell, path: "scripts/install-mysql.sh"
+    stage.vm.provision :shell, path: "scripts/install-java.sh"
+    stage.vm.provision :shell, path: "scripts/install-gradle.sh"
+    stage.vm.provision :shell, path: "scripts/install-node.sh"
+
     # Define the provisioning playbook for the staging environment
     stage.vm.provision "ansible" do |ansible|
       ansible.playbook = "./stage-env/playbook/playbook.yml"
@@ -73,7 +79,8 @@ Vagrant.configure("2") do |config|
 
   # Define the shared folders
   #config.vm.synced_folder "lu.uni.e4l.platform.api.dev", "/lu.uni.e4l.platform.api.dev"
-  #config.vm.synced_folder "lu.uni.e4l.platform.frontend.dev", "/lu.uni.e4l.platform.frontend.dev"
+  config.vm.synced_folder "lu.uni.e4l.platform.frontend.dev", "/lu.uni.e4l.platform.frontend.dev"
+  config.vm.synced_folder "shared-data", "/shared-data"
 
   # Set the VM provider and configure the VMs (define memory and cpus)
   config.vm.provider "virtualbox" do |vb|
