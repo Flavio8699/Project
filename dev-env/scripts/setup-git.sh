@@ -2,6 +2,52 @@
 
 cd lu.uni.e4l.platform.api.dev
 
+# Create CI pipeline
+pipeline=$(cat <<EOF
+image: gradle:6.7.1
+
+stages:
+  - build
+  - test
+  - package
+  - deploy
+
+cache:
+  paths:
+    - .gradle/wrapper
+    - .gradle/caches
+
+variables:
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+
+build:
+  stage: build
+  script:
+    - ./gradlew clean build
+
+test:
+  stage: test
+  script:
+    - ./gradlew test
+
+package:
+  stage: package
+  script:
+    - ./gradlew bootJar
+  artifacts:
+    paths:
+      - build/libs/*.jar
+
+deploy:
+  stage: deploy
+  tags:
+    - stage-vm-shell
+  script:
+    - cp build/libs/*.jar /home/vagrant/artefact-repository
+EOF
+)
+echo "$pipeline" > .gitlab-ci.yml
+
 # Configure git user
 git config --global user.name "Owner Name"
 git config --global user.email "dev@project.com"
