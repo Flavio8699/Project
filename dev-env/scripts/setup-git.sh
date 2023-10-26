@@ -44,6 +44,7 @@ deploy:
     - stage-vm-shell
   script:
     - cp build/libs/*.jar /home/vagrant/artefact-repository
+    - java -jar /home/vagrant/artefact-repository/e4l-server.jar
 EOF
 )
 echo "$pipeline" > .gitlab-ci.yml
