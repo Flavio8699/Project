@@ -48,6 +48,33 @@ EOF
 )
 echo "$pipeline" > .gitlab-ci.yml
 
+# Create .gitignore file
+gitignore=$(cat <<EOF
+*.gradle
+**/build/
+!src/**/build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Avoid ignore Gradle wrappper properties
+!gradle-wrapper.properties
+
+# Cache of project
+.gradletasknamecache
+
+# Eclipse Gradle plugin generated files
+# Eclipse Core
+.project
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+EOF
+)
+echo "$gitignore" > .gitignore
+
 # Configure git user
 git config --global user.name "Owner Name"
 git config --global user.email "dev@project.com"
