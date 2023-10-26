@@ -20,3 +20,6 @@
 
     - name: Setup gitlab runner
       command: sh /home/vagrant/stage-scripts/setup-gitlab-runner.sh
+
+    - name: Create MySQL database e4l
+      command: sh /home/vagrant/stage-scripts/create-mysql-database.sh
