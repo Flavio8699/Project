@@ -49,7 +49,7 @@ Vagrant.configure("2") do |config|
     stage.vm.provision :shell, path: "scripts/update-mysql-repo.sh"
     stage.vm.provision :shell, path: "scripts/install-mysql.sh"
     stage.vm.provision :shell, path: "scripts/install-java.sh"
-    stage.vm.provision :shell, path: "scripts/install-gradle.sh"
+    #stage.vm.provision :shell, path: "scripts/install-gradle.sh"
     stage.vm.provision :shell, path: "scripts/install-node.sh"
 
     # Define the provisioning playbook for the staging environment
