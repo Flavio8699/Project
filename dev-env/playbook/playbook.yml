@@ -12,11 +12,17 @@
     - name: Copy backend to dev environment
       copy: src=../../lu.uni.e4l.platform.api.dev dest=/home/vagrant/ mode=0777 # give full rights to user on this directory
 
+    - name: Copy frontend to dev environment
+      copy: src=../../lu.uni.e4l.platform.frontend.dev dest=/home/vagrant/ mode=0777 # give full rights to user on this directory
+
     - name: Copy dev scripts to dev environment
       copy: src=../scripts dest=/home/vagrant/ mode=0777 # give full rights to user on this directory
 
     - name: Rename the scripts folder
       command: mv /home/vagrant/scripts /home/vagrant/dev-scripts
 
-    - name: Setup git repository
-      command: sh /home/vagrant/dev-scripts/setup-git.sh
+    - name: Setup git repository for the backend
+      command: sh /home/vagrant/dev-scripts/setup-git-backend.sh
+
+    - name: Setup git repository for the frontend
+      command: sh /home/vagrant/dev-scripts/setup-git-frontend.sh

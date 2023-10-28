@@ -1,7 +1,10 @@
 #!/bin/bash
 
-# Send POST request to API using token generated for the user Flavio to create the repository
+# Send POST request to API using token generated for the user Owner to create the repository for the backend
 curl --header "PRIVATE-TOKEN: abcdefghijklmnopqrstuvwxyz" -X POST "http://192.168.33.94/gitlab/api/v4/projects?name=lu.uni.e4l.platform.api.dev"
+
+# Send POST request to API using token generated for the user Owner to create the repository for the frontend
+curl --header "PRIVATE-TOKEN: abcdefghijklmnopqrstuvwxyz" -X POST "http://192.168.33.94/gitlab/api/v4/projects?name=lu.uni.e4l.platform.frontend.dev"
 
 # Install GitLab Runner
 curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
