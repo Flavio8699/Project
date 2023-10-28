@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="lu.uni.e4l.platform.ContextLoadsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-10-11T08:59:52" hostname="dev-env-e4l" time="0.019">
-  <properties/>
-  <testcase name="contextLoads" classname="lu.uni.e4l.platform.ContextLoadsTest" time="0.019"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
