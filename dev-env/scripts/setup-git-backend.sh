@@ -51,7 +51,7 @@ echo "$pipeline" > .gitlab-ci.yml
 
 # Create .gitignore file
 gitignore=$(cat <<EOF
-*.gradle
+#*.gradle
 **/build/
 !src/**/build/
 
