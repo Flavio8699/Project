@@ -1,7 +1,7 @@
 .vagrant/
 .DS_Store
 *.log
-#lu.uni.e4l.platform.api.dev/
-#lu.uni.e4l.platform.frontend.dev/
+lu.uni.e4l.platform.api.dev/
+lu.uni.e4l.platform.frontend.dev/
 .idea/
 shared-data/
