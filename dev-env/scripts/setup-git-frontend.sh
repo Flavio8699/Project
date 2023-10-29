@@ -2,7 +2,40 @@
 
 cd lu.uni.e4l.platform.frontend.dev
 
-# Create pipeline
+# Install npm (create node_modules directory)
+#npm install
+
+# Create CI pipeline
+pipeline=$(cat <<EOF
+image: node:15.14.0
+
+stages:
+  - build
+  - test
+  - package
+  - deploy
+
+build:
+  stage: build
+  script:
+    - npm i
+    #- npm rebuild node-sass
+    #- npm run build
+  #cache:
+    #paths:
+      #- node_modules/
+  #artifacts:
+    #paths:
+      #- node_modules/
+
+#test:
+  #stage: test
+  #script:
+    #- npm test
+
+EOF
+)
+echo "$pipeline" > .gitlab-ci.yml
 
 # Create .gitignore file
 gitignore=$(cat <<EOF
