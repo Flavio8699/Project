@@ -5,7 +5,7 @@
 cd mics-see-project
 ```
 
-**Create the shared folder**
+**Create the shared folder** (to store and share the runner token)
 ```shell
 mkdir shared-data
 ```
