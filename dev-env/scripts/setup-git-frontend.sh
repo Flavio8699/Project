@@ -11,27 +11,15 @@ image: node:15.14.0
 
 stages:
   - build
-  - test
-  - package
-  - deploy
+  #- package
+  #- deploy
 
 build:
   stage: build
   script:
     - npm i
-    #- npm rebuild node-sass
-    #- npm run build
-  #cache:
-    #paths:
-      #- node_modules/
-  #artifacts:
-    #paths:
-      #- node_modules/
-
-#test:
-  #stage: test
-  #script:
-    #- npm test
+    - npm install node-sass@6.0.1
+    - npm run build
 
 EOF
 )
