@@ -9,11 +9,11 @@
     vHome: /home/vagrant
 
   tasks:
-    - name: Copy backend to dev environment
-      copy: src=../../lu.uni.e4l.platform.api.dev dest=/home/vagrant/ mode=0777 # give full rights to user on this directory
+    # - name: Copy backend to dev environment
+    #   copy: src=../../lu.uni.e4l.platform.api.dev dest=/home/vagrant/ mode=0777 # give full rights to user on this directory
 
-    - name: Copy frontend to dev environment
-      copy: src=../../lu.uni.e4l.platform.frontend.dev dest=/home/vagrant/ mode=0777 # give full rights to user on this directory
+    # - name: Copy frontend to dev environment
+    #   copy: src=../../lu.uni.e4l.platform.frontend.dev dest=/home/vagrant/ mode=0777 # give full rights to user on this directory
 
     - name: Copy dev scripts to dev environment
       copy: src=../scripts dest=/home/vagrant/ mode=0777 # give full rights to user on this directory
