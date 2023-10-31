@@ -11,8 +11,7 @@ image: node:15.14.0
 
 stages:
   - build
-  #- package
-  #- deploy
+  - deploy
 
 build:
   stage: build
@@ -20,6 +19,16 @@ build:
     - npm i
     - npm install node-sass@6.0.1
     - npm run build
+  artifacts:
+    paths:
+      - e4l.frontend/web/dist/*
+
+delpoy:
+  stage: deploy
+  tags:
+    - stage-vm-shell
+  script:
+    - cp -r e4l.frontend/web/dist/* /home/vagrant/artefact-repository
 
 EOF
 )
