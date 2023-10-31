@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Install jq for JSON processing (to extract the repository id from the JSON repsonse)
-sudo apt-get install jq
+sudo killall apt apt-get
+sudo apt-get -y install jq
 
 base_url="http://192.168.33.94/gitlab/api/v4"
 private_token="abcdefghijklmnopqrstuvwxyz"
