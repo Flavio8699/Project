@@ -15,7 +15,7 @@ if not existing_user
 
     # Create access token for the user such that we can use the API to POST a new project
     t = PersonalAccessToken.new
-    t.user_id=User.find_by(username: 'Owner').id
+    t.user_id=User.find_by(username: username).id
     t.name='default'
     t.scopes=['api']
     t.set_token('abcdefghijklmnopqrstuvwxyz')
