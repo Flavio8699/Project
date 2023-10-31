@@ -6,7 +6,4 @@ if user && user.encrypted_password.blank?
     user.password = '12345678' # set the password
     user.password_confirmation = '12345678' # confirm the password
     user.save! # save the user
-    puts "Root password has been set."
-  else
-    puts "Root password already exists. Skipping script."
-  end
+end

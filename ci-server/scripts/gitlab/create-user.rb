@@ -8,9 +8,7 @@ username = 'Owner'
 # Check if a user with the given email or username already exists
 existing_user = User.find_by(email: email) || User.find_by(username: username)
 
-if existing_user
-    puts "User with email '#{email}' or username '#{username}' already exists. Skipping account creation."
-else
+if not existing_user
     u = User.new(username: username, email: email, name: 'Owner Name', password: '12345678', password_confirmation: '12345678')
     u.skip_confirmation! # Use it only if you wish user to be automatically confirmed. If skipped, user receives confirmation e-mail
     u.save!
@@ -22,6 +20,4 @@ else
     t.scopes=['api']
     t.set_token('abcdefghijklmnopqrstuvwxyz')
     t.save!
-
-    puts "User with email '#{email}' and username '#{username}' has been created."
 end
