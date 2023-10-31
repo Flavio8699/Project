@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd lu.uni.e4l.platform.api.dev
+cd ../../lu.uni.e4l.platform.api.dev
 
 # Create CI pipeline
 pipeline=$(cat <<EOF

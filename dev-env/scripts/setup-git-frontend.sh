@@ -37,7 +37,7 @@ echo "$pipeline" > .gitlab-ci.yml
 # Create .gitignore file
 gitignore=$(cat <<EOF
 # Dependency diretory
-node_modules/
+#node_modules/
 EOF
 )
 echo "$gitignore" > .gitignore
