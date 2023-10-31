@@ -30,5 +30,11 @@ EOF
 )
 echo "$conf" | sudo tee /etc/nginx/conf.d/default.conf > /dev/null
 
+# Check if default config exists
+if [ -e /etc/nginx/sites-enabled/default ]; then
+  # If it exists, remove it
+  sudo rm /etc/nginx/sites-enabled/default
+fi
+
 # Restart nginx
 sudo service nginx restart
