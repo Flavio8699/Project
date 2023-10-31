@@ -1,10 +1,31 @@
 #!/bin/bash
 
-# Send POST request to API using token generated for the user Owner to create the repository for the backend
-curl --header "PRIVATE-TOKEN: abcdefghijklmnopqrstuvwxyz" -X POST "http://192.168.33.94/gitlab/api/v4/projects?name=lu.uni.e4l.platform.api.dev"
+# Install jq for JSON processing (to extract the repository id from the JSON repsonse)
+sudo apt-get install jq
 
-# Send POST request to API using token generated for the user Owner to create the repository for the frontend
-curl --header "PRIVATE-TOKEN: abcdefghijklmnopqrstuvwxyz" -X POST "http://192.168.33.94/gitlab/api/v4/projects?name=lu.uni.e4l.platform.frontend.dev"
+base_url="http://192.168.33.94/gitlab/api/v4"
+private_token="abcdefghijklmnopqrstuvwxyz"
+username="Owner"
+
+# Check and delete, then create the backend repository
+backend_repository_name="lu.uni.e4l.platform.api.dev"
+project_id=$(curl --header "PRIVATE-TOKEN: ${private_token}" -s "${base_url}/projects/${username}%2F${backend_repository_name}" | jq -r '.id')
+if [ -n "$project_id" ]; then
+  curl --header "PRIVATE-TOKEN: ${private_token}" -X DELETE "${base_url}/projects/${project_id}"
+  # Add delay of 5 seconds (such that deletion is compeleted before starting to create repo again)
+  sleep 5
+fi
+curl --header "PRIVATE-TOKEN: ${private_token}" -X POST "${base_url}/projects?name=${backend_repository_name}"
+
+# Check and delete, then create the frontend repository
+frontend_repository_name="lu.uni.e4l.platform.frontend.dev"
+project_id=$(curl --header "PRIVATE-TOKEN: ${private_token}" -s "${base_url}/projects/${username}%2F${frontend_repository_name}" | jq -r '.id')
+if [ -n "$project_id" ]; then
+  curl --header "PRIVATE-TOKEN: ${private_token}" -X DELETE "${base_url}/projects/${project_id}"
+  # Add delay of 5 seconds (such that deletion is compeleted before starting to create repo again)
+  sleep 5
+fi
+curl --header "PRIVATE-TOKEN: ${private_token}" -X POST "${base_url}/projects?name=${frontend_repository_name}"
 
 # Install GitLab Runner
 curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
