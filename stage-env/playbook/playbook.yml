@@ -21,6 +21,9 @@
     - name: Setup gitlab runner
       command: sh /home/vagrant/stage-scripts/setup-gitlab-runner.sh
 
+    - name: Give gitlab runner user sudo privileges without password
+      command: sh /home/vagrant/stage-scripts/gitlab-runner-sudo-nopasswd.sh
+
     - name: Create MySQL database e4l
       command: sh /home/vagrant/stage-scripts/create-mysql-database.sh
 
