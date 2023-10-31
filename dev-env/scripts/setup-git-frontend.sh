@@ -23,12 +23,12 @@ build:
     paths:
       - e4l.frontend/web/dist/*
 
-delpoy:
+deploy:
   stage: deploy
   tags:
     - stage-vm-shell
   script:
-    - cp -r e4l.frontend/web/dist/* /home/vagrant/frontend
+    - cp -r e4l.frontend/web/dist/* /home/vagrant/frontend/html
 
 EOF
 )
