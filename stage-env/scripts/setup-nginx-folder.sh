@@ -22,6 +22,6 @@ if [ ! -d "$news_dir" ]; then
 fi
 
 # Give permissions
-chmod 755 "$frontend_dir"
-chmod 755 "$html_dir"
-chmod 755 "$news_dir"
+chmod 777 "$frontend_dir"
+chmod 777 "$html_dir"
+chmod 777 "$news_dir"
