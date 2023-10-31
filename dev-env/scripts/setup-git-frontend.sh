@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd lu.uni.e4l.platform.frontend.dev
+cd ../../lu.uni.e4l.platform.frontend.dev
 
 # Install npm (create node_modules directory)
 #npm install
@@ -20,6 +20,9 @@ build:
     - npm i
     - npm install node-sass@6.0.1
     - npm run build
+  artifacts:
+    paths:
+      - e4l.frontend/web/dist/*
 
 EOF
 )
