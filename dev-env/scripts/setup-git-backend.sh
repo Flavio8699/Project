@@ -76,6 +76,11 @@ EOF
 )
 echo "$gitignore" > .gitignore
 
+# Check if a .git directory already exists
+if [ -d ".git" ]; then
+  rm -rf .git
+fi
+
 # Configure git user
 git config --global user.name "Owner Name"
 git config --global user.email "dev@project.com"
