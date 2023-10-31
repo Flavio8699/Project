@@ -1,14 +1,27 @@
 #!/bin/bash
 
-# Create folder
-mkdir frontend/
+# Define folder paths
+frontend_dir="frontend"
+html_dir="${frontend_dir}/html"
+news_dir="${frontend_dir}/news"
 
-# Give full rights
-chmod 777 frontend/
+# Check if folders exist, and create them if they don't
+if [ ! -d "$frontend_dir" ]; then
+  mkdir -p "$frontend_dir"
+else
+  # If the folder exists, remove its contents
+  rm -r "$frontend_dir"/*
+fi
 
-# Create html folder
-cd frontend/
-mkdir html/
+if [ ! -d "$html_dir" ]; then
+  mkdir -p "$html_dir"
+fi
 
-# Create news folder
-mkdir news/
+if [ ! -d "$news_dir" ]; then
+  mkdir -p "$news_dir"
+fi
+
+# Give permissions
+chmod 755 "$frontend_dir"
+chmod 755 "$html_dir"
+chmod 755 "$news_dir"
