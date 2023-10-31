@@ -30,5 +30,8 @@ EOF
 )
 echo "$conf" | sudo tee /etc/nginx/conf.d/default.conf > /dev/null
 
+# Remove default config
+sudo rm /etc/nginx/sites-enabled/default
+
 # Restart nginx
 sudo service nginx restart
