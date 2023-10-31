@@ -67,6 +67,11 @@ Vagrant.configure("2") do |config|
     # Consfigure a private network for the production environment
     prod.vm.network "private_network", ip: "192.168.33.97"
 
+    stage.vm.provision :shell, path: "scripts/update-mysql-repo.sh"
+    stage.vm.provision :shell, path: "scripts/install-mysql.sh"
+    stage.vm.provision :shell, path: "scripts/install-java.sh"
+    stage.vm.provision :shell, path: "scripts/install-nginx.sh"
+
     # Define the provisioning playbook for the production environment
     prod.vm.provision "ansible" do |ansible|
       ansible.playbook = "./prod-env/playbook/playbook.yml"
@@ -78,7 +83,7 @@ Vagrant.configure("2") do |config|
   ENV['LC_ALL']="en_US.UTF-8"
 
   # Define the shared folders
-  #config.vm.synced_folder "lu.uni.e4l.platform.api.dev", "/lu.uni.e4l.platform.api.dev"
+  config.vm.synced_folder "lu.uni.e4l.platform.api.dev", "/lu.uni.e4l.platform.api.dev"
   config.vm.synced_folder "lu.uni.e4l.platform.frontend.dev", "/lu.uni.e4l.platform.frontend.dev"
   config.vm.synced_folder "shared-data", "/shared-data"
 
