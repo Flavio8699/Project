@@ -17,9 +17,9 @@
 
     - name: Copy dev scripts to dev environment
       copy: src=../scripts dest=/home/vagrant/ mode=0777 # give full rights to user on this directory
-
+    
     - name: Rename the scripts folder
-      command: mv /home/vagrant/scripts /home/vagrant/dev-scripts
+      command: sh /home/vagrant/scripts/rename-scripts-folder.sh
 
     - name: Setup git repository for the backend
       command: sh /home/vagrant/dev-scripts/setup-git-backend.sh
