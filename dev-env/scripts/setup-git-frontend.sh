@@ -28,7 +28,7 @@ delpoy:
   tags:
     - stage-vm-shell
   script:
-    - cp -r e4l.frontend/web/dist/* /home/vagrant/artefact-repository
+    - cp -r e4l.frontend/web/dist/* /home/vagrant/frontend
 
 EOF
 )
