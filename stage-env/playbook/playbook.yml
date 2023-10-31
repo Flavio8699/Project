@@ -23,3 +23,9 @@
 
     - name: Create MySQL database e4l
       command: sh /home/vagrant/stage-scripts/create-mysql-database.sh
+
+    - name: Setup nginx folder
+      command: sh /home/vagrant/stage-scripts/setup-nginx-folder.sh
+
+    - name: Setup nginx
+      command: sh /home/vagrant/stage-scripts/setup-nginx.sh
