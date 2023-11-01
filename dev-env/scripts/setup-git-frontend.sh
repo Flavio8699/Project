@@ -17,6 +17,7 @@ image: node:15.14.0
 stages:
   - build
   - deploy
+  - release
 
 build:
   stage: build
@@ -35,6 +36,15 @@ deploy:
   script:
     - cp -r e4l.frontend/web/dist/* /home/vagrant/frontend/html
     - sh /home/vagrant/stage-scripts/configure-frontend.sh
+
+release:
+  stage: release
+  tags:
+    - prod-vm-shell
+  script:
+    - cp -r e4l.frontend/web/dist/* /home/vagrant/frontend/html
+    - sh /home/vagrant/prod-scripts/configure-frontend.sh
+  when: manual
 
 EOF
 )
