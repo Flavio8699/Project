@@ -87,6 +87,23 @@ EOF
 )
 echo "$gitignore" > .gitignore
 
+# Install jq for JSON processing (to extract the repository id from the JSON repsonse)
+sudo apt-get -y install jq
+
+base_url="http://192.168.33.94/gitlab/api/v4"
+private_token="abcdefghijklmnopqrstuvwxyz"
+username="Owner"
+
+# Check and delete, then create the backend repository
+backend_repository_name="lu.uni.e4l.platform.api.dev"
+project_id=$(curl --header "PRIVATE-TOKEN: ${private_token}" -s "${base_url}/projects/${username}%2F${backend_repository_name}" | jq -r '.id')
+if [ -n "$project_id" ]; then
+  curl --header "PRIVATE-TOKEN: ${private_token}" -X DELETE "${base_url}/projects/${project_id}"
+  # Add delay of 5 seconds (such that deletion is compeleted before starting to create repo again)
+  sleep 5
+fi
+curl --header "PRIVATE-TOKEN: ${private_token}" -X POST "${base_url}/projects?name=${backend_repository_name}"
+
 # Check if a .git directory already exists
 if [ -d ".git" ]; then
   rm -rf .git
