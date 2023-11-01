@@ -2,8 +2,13 @@
 
 cd ../../lu.uni.e4l.platform.frontend.dev
 
-# Install npm (create node_modules directory)
-#npm install
+# Create a configuration file with variables which can be adapted to the deloyment environment
+env=$(cat <<EOF
+PUBLIC_PATH=PUBLIC_PATH
+API_URL=API_URL
+EOF
+)
+echo "$env" > .env
 
 # Create CI pipeline
 pipeline=$(cat <<EOF
