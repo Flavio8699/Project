@@ -29,6 +29,7 @@ deploy:
     - stage-vm-shell
   script:
     - cp -r e4l.frontend/web/dist/* /home/vagrant/frontend/html
+    - sh /home/vagrant/stage-scripts/configure-frontend.sh
 
 EOF
 )
