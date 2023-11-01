@@ -14,3 +14,21 @@
 
     - name: Rename the scripts folder
       command: sh /home/vagrant/scripts/rename-scripts-folder.sh
+
+    - name: Setup artefact repository
+      command: sh /home/vagrant/prod-scripts/setup-artefact-repository.sh
+
+    - name: Setup gitlab runner
+      command: sh /home/vagrant/prod-scripts/setup-gitlab-runner.sh
+
+    - name: Give gitlab runner user sudo privileges without password
+      command: sh /home/vagrant/prod-scripts/gitlab-runner-sudo-nopasswd.sh
+
+    - name: Create MySQL database e4l
+      command: sh /home/vagrant/prod-scripts/create-mysql-database.sh
+
+    - name: Setup nginx folder
+      command: sh /home/vagrant/prod-scripts/setup-nginx-folder.sh
+
+    - name: Setup nginx
+      command: sh /home/vagrant/prod-scripts/setup-nginx.sh
