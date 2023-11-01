@@ -11,6 +11,7 @@ stages:
   - test
   - package
   - deploy
+  - release
 
 cache:
   paths:
@@ -45,6 +46,16 @@ deploy:
   script:
     - cp build/libs/*.jar /home/vagrant/artefact-repository
     - sh /home/vagrant/stage-scripts/start-backend.sh
+
+release:
+  stage: release
+  tags:
+    - prod-vm-shell
+  script:
+    - cp build/libs/*.jar /home/vagrant/artefact-repository
+    - sh /home/vagrant/prod-scripts/start-backend.sh
+  when: manual
+
 EOF
 )
 echo "$pipeline" > .gitlab-ci.yml
