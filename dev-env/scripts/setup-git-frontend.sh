@@ -22,8 +22,8 @@ stages:
 build:
   stage: build
   script:
-    - npm i
-    - npm install node-sass@6.0.1
+    #- npm i
+    #- npm install node-sass@6.0.1
     - npm run build
   artifacts:
     paths:
@@ -57,6 +57,26 @@ gitignore=$(cat <<EOF
 EOF
 )
 echo "$gitignore" > .gitignore
+
+# Rebuild node-sass module for the build in the pipeline
+npm rebuild node-sass@6.0.1
+
+# Install jq for JSON processing (to extract the repository id from the JSON repsonse)
+sudo apt-get -y install jq
+
+base_url="http://192.168.33.94/gitlab/api/v4"
+private_token="abcdefghijklmnopqrstuvwxyz"
+username="Owner"
+
+# Check and delete, then create the frontend repository
+frontend_repository_name="lu.uni.e4l.platform.frontend.dev"
+project_id=$(curl --header "PRIVATE-TOKEN: ${private_token}" -s "${base_url}/projects/${username}%2F${frontend_repository_name}" | jq -r '.id')
+if [ -n "$project_id" ]; then
+  curl --header "PRIVATE-TOKEN: ${private_token}" -X DELETE "${base_url}/projects/${project_id}"
+  # Add delay of 5 seconds (such that deletion is compeleted before starting to create repo again)
+  sleep 5
+fi
+curl --header "PRIVATE-TOKEN: ${private_token}" -X POST "${base_url}/projects?name=${frontend_repository_name}"
 
 # Check if a .git directory already exists
 if [ -d ".git" ]; then
