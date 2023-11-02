@@ -59,9 +59,6 @@ EOF
 )
 echo "$gitignore" > .gitignore
 
-# Rebuild node-sass module for the build in the pipeline
-npm rebuild node-sass@6.0.1
-
 # Install jq for JSON processing (to extract the repository id from the JSON repsonse)
 sudo apt-get -y install jq
 
