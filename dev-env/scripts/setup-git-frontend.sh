@@ -22,8 +22,9 @@ stages:
 build:
   stage: build
   script:
-    #- npm i
-    #- npm install node-sass@6.0.1
+    - npm i
+    - npm uninstall node-sass
+    - npm install node-sass@6.0.1
     - npm run build
   artifacts:
     paths:
