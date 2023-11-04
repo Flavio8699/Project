@@ -19,12 +19,14 @@ stages:
   - deploy
   - release
 
+before_script:
+  - apt-get update -qy
+  - apt-get install -y build-essential
+
 build:
   stage: build
   script:
-    - npm i
-    - npm uninstall node-sass
-    - npm install node-sass@6.0.1
+    - npm rebuild node-sass
     - npm run build
   artifacts:
     paths:
@@ -54,7 +56,7 @@ echo "$pipeline" > .gitlab-ci.yml
 # Create .gitignore file
 gitignore=$(cat <<EOF
 # Dependency diretory
-node_modules/
+#node_modules/
 EOF
 )
 echo "$gitignore" > .gitignore
