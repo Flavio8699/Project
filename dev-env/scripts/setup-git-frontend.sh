@@ -19,10 +19,6 @@ stages:
   - deploy
   - release
 
-before_script:
-  - apt-get update -qy
-  - apt-get install -y build-essential
-
 build:
   stage: build
   script:
