@@ -16,6 +16,7 @@ image: node:15.14.0
 
 stages:
   - build
+  - test
   - deploy
   - release
 
@@ -27,6 +28,12 @@ build:
   artifacts:
     paths:
       - e4l.frontend/web/dist/*
+
+test:
+  stage: test
+  script:
+    - npm install --save-dev jest
+    - npm test
 
 deploy:
   stage: deploy
