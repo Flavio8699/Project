@@ -24,5 +24,5 @@
     - name: Configure Docker
       command: sh /home/vagrant/scripts/docker/config.sh
 
-    - name: Create GitLab repositories for the project and setup a runner
-      command: sh /home/vagrant/scripts/gitlab-repository/config.sh
+    - name: Setup a shared runner for the project
+      command: sh /home/vagrant/scripts/gitlab-runner/config.sh
