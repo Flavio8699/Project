@@ -22,7 +22,7 @@ stages:
 build:
   stage: build
   script:
-    - npm rebuild node-sass
+    - npm rebuild
     - npm run build
   artifacts:
     paths:
