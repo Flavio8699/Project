@@ -32,7 +32,7 @@ build:
 test:
   stage: test
   script:
-    - npm install jest@21.2.1
+    - npm install jest
     - npm test
 
 deploy:
