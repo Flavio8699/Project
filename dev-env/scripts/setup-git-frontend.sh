@@ -2,6 +2,12 @@
 
 cd ../../lu.uni.e4l.platform.frontend.dev
 
+# Install node_modules
+npm i
+
+# Rebuild modules
+npm rebuild
+
 # Create a configuration file with variables which can be adapted to the deloyment environment
 env=$(cat <<EOF
 PUBLIC_PATH=PUBLIC_PATH
@@ -16,24 +22,23 @@ image: node:15.14.0
 
 stages:
   - build
-  - test
+  #- test
   - deploy
   - release
 
 build:
   stage: build
   script:
-    - npm rebuild
+    - npm test
     - npm run build
   artifacts:
     paths:
       - e4l.frontend/web/dist/*
 
-test:
-  stage: test
-  script:
-    - npm install jest
-    - npm test
+#test:
+#  stage: test
+#  script:
+#    - npm test
 
 deploy:
   stage: deploy
