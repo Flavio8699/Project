@@ -71,7 +71,6 @@
     "material-ui": "^0.20.2",
     "mdbreact": "^4.27.0",
     "npm": "^5.8.0",
-    "npmlog": "^4.1.2",
     "react-admin": "^3.19.12",
     "react-bootstrap": "^1.6.7",
     "react-bootstrap-table2-filter": "^0.1.6",
