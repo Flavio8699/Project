@@ -25,6 +25,7 @@ Vagrant.configure("2") do |config|
     # Consfigure a private network for the development environment
     dev.vm.network "private_network", ip: "192.168.33.95"
 
+    # test
     dev.vm.provision :shell, path: "scripts/update-mysql-repo.sh"
     dev.vm.provision :shell, path: "scripts/install-mysql.sh"
     dev.vm.provision :shell, path: "scripts/install-java.sh"
