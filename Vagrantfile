@@ -29,7 +29,6 @@ Vagrant.configure("2") do |config|
     dev.vm.provision :shell, path: "scripts/install-mysql.sh"
     dev.vm.provision :shell, path: "scripts/install-java.sh"
     dev.vm.provision :shell, path: "scripts/install-gradle.sh"
-    #dev.vm.provision :shell, path: "scripts/install-node.sh"
 
     # Define the provisioning playbook for the development environment
     dev.vm.provision "ansible" do |ansible|
