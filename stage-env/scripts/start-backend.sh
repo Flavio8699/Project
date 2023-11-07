@@ -16,8 +16,8 @@ if [ -n "$PID" ]; then
     echo "Shutting down previous backend server.."
 fi
 
- Start backend in the background
-#nohup java -jar e4l-server.jar > /dev/null 2>&1 &
+# Start backend in the background
+nohup java -jar e4l-server.jar > /dev/null 2>&1 &
 echo "Starting backend server.."
 
 # Allow the previous backend to shutdown by giving 5 seconds waiting time
