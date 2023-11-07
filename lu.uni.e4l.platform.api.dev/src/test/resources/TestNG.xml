@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test Suite for Hello World case study" verbose="1">
+  <test name="TestNG-TestCases">
+    <classes>
+         <class name="testNG.TestQuestionnaire" />
+    </classes>
+
+  </test>
+</suite>

@@ -8,9 +8,9 @@ image: gradle:6.7.1
 
 stages:
   - build
-  - test
   - package
   - deploy
+  - test
   - release
 
 cache:
@@ -25,11 +25,6 @@ build:
   stage: build
   script:
     - ./gradlew clean build
-
-test:
-  stage: test
-  script:
-    - ./gradlew test
 
 package:
   stage: package
@@ -46,6 +41,12 @@ deploy:
   script:
     - cp build/libs/*.jar /home/vagrant/artefact-repository
     - sh /home/vagrant/stage-scripts/start-backend.sh
+
+acceptance test:
+  stage: test
+  script:
+    - ./gradlew acceptanceTest
+  when: manual
 
 release:
   stage: release
