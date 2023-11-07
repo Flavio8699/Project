@@ -7,8 +7,14 @@
 
   vars:
     vHome: /home/vagrant
+    nodejs_version: "15.14.0"
+    nodejs_major: "15"
+    npm_version: "7.7.6"
 
   tasks:
+    - include_role:
+        name: nodejs_npm
+        
     # - name: Copy backend to dev environment
     #   copy: src=../../lu.uni.e4l.platform.api.dev dest=/home/vagrant/ mode=0777 # give full rights to user on this directory
 

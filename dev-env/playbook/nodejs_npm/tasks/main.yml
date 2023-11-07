@@ -1,0 +1,41 @@
+---
+
+- name: Update repositories cache. 
+  apt:
+    update_cache: yes
+
+- name: Install packages required by Node.
+  apt:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - curl
+    - wget
+
+- name: Download Node.js repository key
+  get_url:
+    url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+    dest: /tmp/nodesource.gpg.key
+
+- name: Import Node.js repository key
+  shell: sudo gpg --dearmor -o /usr/share/keyrings/nodesource-archive-keyring.gpg /tmp/nodesource.gpg.key
+  args:
+    creates: /usr/share/keyrings/nodesource-archive-keyring.gpg
+
+- name: Add Node.js repository
+  shell: echo "deb [signed-by=/usr/share/keyrings/nodesource-archive-keyring.gpg] https://deb.nodesource.com/node_{{ nodejs_major }}.x $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+
+- name: Add Node.js repository (deb-src)
+  shell: echo "deb-src [signed-by=/usr/share/keyrings/nodesource-archive-keyring.gpg] https://deb.nodesource.com/node_{{ nodejs_major }}.x $(lsb_release -sc) main" | sudo tee -a /etc/apt/sources.list.d/nodesource.list
+
+- name: Update repositories cache. 
+  apt:
+    update_cache: yes
+
+- name: Install Node.js {{ nodejs_version }}
+  apt:
+    name: "nodejs={{ nodejs_version }}-1nodesource1"
+    state: present
+
+- name: Install npm {{ npm_version }}
+  shell: "npm install -g npm@{{ npm_version }}"
