@@ -20,6 +20,7 @@ cache:
 
 variables:
   GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+  STAGE_BASE_URL: "http://192.168.33.96:8080"
 
 build:
   stage: build
@@ -44,9 +45,12 @@ deploy:
 
 acceptance test:
   stage: test
+  tags:
+    - integration
+  services:
+    - name: selenium/standalone-chrome:latest 
   script:
-    - ./gradlew acceptanceTest
-  when: manual
+    - ./gradlew acceptanceTest -Penv.BASEURL=$STAGE_BASE_URL
 
 release:
   stage: release

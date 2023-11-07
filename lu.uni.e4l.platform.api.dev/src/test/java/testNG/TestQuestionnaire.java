@@ -25,6 +25,21 @@ public class TestQuestionnaire {
 	private static String webpageURI = "/e4lapi/questionnaire";
 
 	@BeforeTest
+	// Local run
+	// public static void configureDriver() {
+	// // Set the path to your local ChromeDriver executable
+	// System.setProperty("webdriver.chrome.driver",
+	// "/Users/flavio/Installs/chromedriver_mac64/chromedriver");
+
+	// ChromeOptions chromeOptions = new ChromeOptions();
+	// chromeOptions.addArguments("--headless");
+	// chromeOptions.addArguments("--no-sandbox");
+	// chromeOptions.addArguments("--disable-dev-shm-usage");
+	// chromeOptions.addArguments("--window-size=1200x600");
+
+	// // Create a ChromeDriver instance
+	// driver = new ChromeDriver(chromeOptions);
+	// }
 	public static void configureDriver() throws MalformedURLException {
 		final ChromeOptions chromeOptions = new ChromeOptions();
 		chromeOptions.addArguments("--headless");
@@ -41,24 +56,6 @@ public class TestQuestionnaire {
 
 		driver = new RemoteWebDriver(new URL("http://selenium__standalone-chrome:4444/wd/hub"), capability);
 	}
-
-	/*
-	 * Local execution
-	 * public static void configureDriver() {
-	 * // Set the path to your local ChromeDriver executable
-	 * System.setProperty("webdriver.chrome.driver",
-	 * "/Users/flavio/Downloads/chromedriver_mac64/chromedriver");
-	 * 
-	 * ChromeOptions chromeOptions = new ChromeOptions();
-	 * chromeOptions.addArguments("--headless");
-	 * chromeOptions.addArguments("--no-sandbox");
-	 * chromeOptions.addArguments("--disable-dev-shm-usage");
-	 * chromeOptions.addArguments("--window-size=1200x600");
-	 * 
-	 * // Create a ChromeDriver instance
-	 * driver = new ChromeDriver(chromeOptions);
-	 * }
-	 */
 
 	@Test
 	public static void testQuestionnaireJson() throws InterruptedException {

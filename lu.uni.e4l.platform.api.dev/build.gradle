@@ -55,6 +55,7 @@ dependencies {
 }
 
 task acceptanceTest(type: Test) {
+    systemProperty 'serverBaseURL', project.findProperty('env.BASEURL')
     useTestNG()
     testLogging {
         showStandardStreams = true
