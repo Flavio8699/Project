@@ -48,7 +48,7 @@ acceptance test:
   tags:
     - integration
   services:
-    - name: selenium/standalone-chrome:latest 
+    - name: selenium/standalone-chrome:3.141.59
   script:
     - ./gradlew acceptanceTest -Penv.BASEURL=$STAGE_BASE_URL
 
