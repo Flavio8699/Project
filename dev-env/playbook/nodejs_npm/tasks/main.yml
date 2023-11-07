@@ -1,9 +1,5 @@
 ---
 
-- name: Update repositories cache. 
-  apt:
-    update_cache: yes
-
 - name: Install packages required by Node.
   apt:
     name: "{{ packages }}"
