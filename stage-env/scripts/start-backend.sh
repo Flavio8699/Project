@@ -26,7 +26,7 @@ if $PREVIOUS_SERVER; then
 fi
 
 # Sample backend API enpoint
-BACKEND_URL="http://192.168.33.96:8080/e4lapi"
+BACKEND_URL="http://192.168.33.96:8080/e4lapi/questionnaire"
 
 # Maximum number of retries
 MAX_RETRIES=12
