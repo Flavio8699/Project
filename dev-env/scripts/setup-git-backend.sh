@@ -4,7 +4,7 @@ cd ../../lu.uni.e4l.platform.api.dev
 
 # Create CI pipeline
 pipeline=$(cat <<EOF
-image: gradle:6.7.1
+image: gradle:6.7.1-jdk8
 
 stages:
   - build
@@ -63,7 +63,7 @@ release:
 
 EOF
 )
-echo "$pipeline" > .gitlab-ci.yml
+echo "$pipeline" | sudo tee .gitlab-ci.yml > /dev/null
 
 # Create .gitignore file
 gitignore=$(cat <<EOF
