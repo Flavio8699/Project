@@ -65,7 +65,6 @@ Vagrant.configure("2") do |config|
     # Consfigure a private network for the production environment
     prod.vm.network "private_network", ip: "192.168.33.97"
 
-    # test 
     prod.vm.provision :shell, path: "scripts/update-mysql-repo.sh"
     prod.vm.provision :shell, path: "scripts/install-mysql.sh"
     prod.vm.provision :shell, path: "scripts/install-java.sh"
