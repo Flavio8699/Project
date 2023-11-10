@@ -121,7 +121,6 @@ This is a DevOps project demonstrating the various steps to deliver a product fr
 4. Verify that the repository _lu.uni.e4l.platform.frontend.dev_ (accessible [here](http://192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.frontend.dev)) exists
 
 #### Post conditions:
-
 1. The project repositories of the backend and frontend were successfully created during the provisioning of the Development Environment.
 
 ## 5. Staging Environment
@@ -162,6 +161,7 @@ This is a DevOps project demonstrating the various steps to deliver a product fr
 1. The product was successfully deployed to the Staging Environment.
 
 ## 6. Production Environment
+**Note:** To save resources, the Development and Staging Environment VMs can be stopped using the respective commands: `vagrant halt dev-env` and `vagrant halt stage-env`.
 
 ### Asset Composition
 1. Vagrant VM specification (Vagrantfile)
