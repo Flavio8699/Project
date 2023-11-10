@@ -161,7 +161,7 @@ This is a DevOps project demonstrating the various steps to deliver a product fr
 1. The product was successfully deployed to the Staging Environment.
 
 ## 6. Production Environment
-**Note:** To save resources, the Development and Staging Environment VMs can be stopped using the respective commands: `vagrant halt dev-env` and `vagrant halt stage-env`.
+**Note:** To save resources, the Development and Staging Environment VMs can be stopped using the respective commands `vagrant halt dev-env` and `vagrant halt stage-env`.
 
 ### Asset Composition
 1. Vagrant VM specification (Vagrantfile)
