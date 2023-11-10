@@ -1,12 +1,12 @@
 # Software Engineering Environments DevOps Project
 This is a DevOps project demonstrating the various steps to deliver a product from development to release through a continuous integration (CI) deployment pipeline.
 
-1. [Prerequisites](#Prerequisites)
-2. [Setup](#Setup)
-3. [CI Server](#CI-Server)
-4. [Development Environment](#Development-Environment)
-5. [Staging Environment](#Staging-Environment)
-6. [Production Environment](#Production-Environment)
+1. [Prerequisites](#1-prerequisites)
+2. [Setup](#2-setup)
+3. [CI Server](#3-ci-server)
+4. [Development Environment](#4-development-environment)
+5. [Staging Environment](#5-staging-environment)
+6. [Production Environment](#6-production-environment)
 
 ## 1. Prerequisites
 
