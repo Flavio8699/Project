@@ -15,6 +15,14 @@ Vagrant.configure("2") do |config|
       ansible.playbook = "./ci-server/playbook/playbook.yml"
       ansible.compatibility_mode = "2.0"
     end
+
+    # Define memory of ci server
+    ci.vm.provider "virtualbox" do |vb|
+
+      # Customize the amount of memory on the VM:
+      vb.memory = "8192"
+  end
+
   end
 
   # Configuration for the development environment
@@ -91,9 +99,9 @@ Vagrant.configure("2") do |config|
    	# vb.gui = true
 
     # Customize the amount of memory on the VM:
-      vb.memory = "4096"
-      #vb.memory = "16284"
-      #vb.memory = "24284"
+    vb.memory = "4096"
+    #vb.memory = "16284"
+    #vb.memory = "24284"
 
     # Customoie the number of CPUs
     vb.cpus = 4
