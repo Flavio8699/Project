@@ -32,3 +32,6 @@
 
     - name: Setup git repository for the frontend
       command: sh /home/vagrant/dev-scripts/setup-git-frontend.sh
+
+    - name: Create MySQL database e4l
+      command: sh /home/vagrant/dev-scripts/create-mysql-database.sh
