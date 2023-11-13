@@ -2,9 +2,6 @@
 
 cd ../../lu.uni.e4l.platform.frontend.dev
 
-# Install node_modules
-npm i
-
 # Rebuild modules
 npm rebuild
 
@@ -28,6 +25,8 @@ stages:
 build:
   stage: build
   script:
+    - npm ci
+    - npm rebuild
     - npm test
     - npm run build
   artifacts:
@@ -58,7 +57,8 @@ echo "$pipeline" > .gitlab-ci.yml
 # Create .gitignore file
 gitignore=$(cat <<EOF
 # Dependency diretory
-#node_modules/
+e4l.frontend/
+node_modules/
 EOF
 )
 echo "$gitignore" > .gitignore
