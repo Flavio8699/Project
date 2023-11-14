@@ -5,7 +5,7 @@ frontend="/home/vagrant/frontend"
 
 # Define the configuration variables
 PUBLIC_PATH=""
-API_URL="https://192.168.33.97:8080/e4lapi"
+API_URL="https://192.168.33.97/e4lapi"
 
 # Configure frontend
 sed -i -e "s@PUBLIC_PATH@$PUBLIC_PATH@g" "$frontend"/html/js/main.js
