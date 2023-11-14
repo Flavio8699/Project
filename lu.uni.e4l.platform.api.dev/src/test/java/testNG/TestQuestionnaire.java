@@ -61,12 +61,8 @@ public class TestQuestionnaire {
 	public static void testQuestionnaireJson() throws InterruptedException {
 		driver.get(serverBaseURL + webpageURI);
 		Thread.sleep(1000);
-
 		String pageSource = driver.findElement(By.tagName("pre")).getText();
-
 		Assert.assertTrue(isValidJSON(pageSource));
-
-		Thread.sleep(1000);
 	}
 
 	public static boolean isValidJSON(String json) {
