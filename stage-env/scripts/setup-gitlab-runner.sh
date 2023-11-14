@@ -7,7 +7,7 @@ sudo apt-get install gitlab-runner
 # Get runner token
 registration_token=$(cat /shared-data/gitlab-runner-token.txt)
 
-# Register runner (without tags)
+# Register runner
 sudo gitlab-runner register \
     --non-interactive \
     --url "http://192.168.33.94/gitlab" \

@@ -41,8 +41,8 @@ deploy:
     - stage-vm-shell
   script:
     - cp build/libs/*.jar /home/vagrant/artefact-repository
-    - sh /home/vagrant/stage-scripts/configure-backend.sh
     - sh /home/vagrant/stage-scripts/start-backend.sh
+    - sh /home/vagrant/stage-scripts/configure-backend.sh
 
 acceptance test:
   stage: test
@@ -59,8 +59,8 @@ release:
     - prod-vm-shell
   script:
     - cp build/libs/*.jar /home/vagrant/artefact-repository
-    - sh /home/vagrant/prod-scripts/configure-backend.sh
     - sh /home/vagrant/prod-scripts/start-backend.sh
+    - sh /home/vagrant/prod-scripts/configure-backend.sh
   when: manual
 
 EOF
