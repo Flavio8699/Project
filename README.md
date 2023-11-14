@@ -117,7 +117,7 @@ This is a DevOps project demonstrating the various steps to deliver a product fr
 2. If not already logged in, log in with the following credentials:
    - username: `Owner`
    - password: `12345678`
-3. Verify that the repository _lu.uni.e4l.platform.api.dev_ (accessible [here](http://192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.api.dev){:target="_blank"}) exists
+3. Verify that the repository _lu.uni.e4l.platform.api.dev_ (accessible [here](http://192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.api.dev?target=_blank)) exists
 4. Verify that the repository _lu.uni.e4l.platform.frontend.dev_ (accessible [here](http://192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.frontend.dev)) exists
 
 #### Post conditions:
