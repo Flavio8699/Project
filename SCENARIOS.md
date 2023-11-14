@@ -46,6 +46,8 @@ Deploy a mistake in the frontend to the production and roll-back to the latest c
 6. Check in the changes to the VSC (GitLab)
 
    ```shell
+   git config --global user.name "Owner Name"
+   git config --global user.email "dev@project.com"
    git add src/js/presentation/NavBar.js
    git commit -m "Update navigation bar"
    git push http://Owner:12345678@192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.frontend.dev master
@@ -115,6 +117,8 @@ The acceptance test in the pipeline for the backend repository fails due to a mi
 7. Check in the changes to the VSC (GitLab)
 
    ```shell
+   git config --global user.name "Owner Name"
+   git config --global user.email "dev@project.com"
    git add .gitlab-ci.yml
    git commit -m "Update pipeline"
    git push http://Owner:12345678@192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.api.dev master
