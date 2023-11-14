@@ -40,7 +40,7 @@ RETRY_COUNT=0
 # Loop until the backend is ready or the maximum number of retries is reached
 while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
     # Attempt to make an HTTP request to the backend API endpoint
-    if curl -s --head --request GET $BACKEND_URL | grep "200" > /dev/null; then
+    if curl -s -k --head --request GET $BACKEND_URL | grep "200" > /dev/null; then
         echo "Backend is ready."
         exit 0
     else
