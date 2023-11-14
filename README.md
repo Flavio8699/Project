@@ -45,7 +45,7 @@ This is a DevOps project demonstrating the various steps to deliver a product fr
    ```
 
 **Notes:**
-- Step 4 starts the CI-server as well as the development, staging and production environments.
+- Step 4 starts the CI Server as well as the development, staging and production environments.
 - After following the steps above and completing step 4, the Deployment Pipeline and all its related components are up and running.
 - A detailed explanation for each environment can be found in the following sections.
 - Steps 1-3 are still required even if you want to start all the VMs manually (i.e. you skip step 4 and follow the guidelines in the following sections).
@@ -192,7 +192,7 @@ This is a DevOps project demonstrating the various steps to deliver a product fr
    - Open the repository
    - In the sidebar menu, click on CI/CD
    - Click on the status of the first (and only) pipeline (accessible here: [frontend](http://192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.frontend.dev/-/pipelines/2) or [backend](http://192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.api.dev/-/pipelines/1))
-   - Manually release the product to the Production Envirionmnt by clicking on the play-button (next to _'release'_) in the _Release_ stage
+   - Manually release the product to the Production Environment by clicking on the play-button (next to _'release'_) in the _Release_ stage
 2. Go to http://192.168.33.97/
 
 #### Post conditions:
