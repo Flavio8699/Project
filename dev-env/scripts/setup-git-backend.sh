@@ -20,7 +20,7 @@ cache:
 
 variables:
   GRADLE_OPTS: "-Dorg.gradle.daemon=false"
-  STAGE_BASE_URL: "https://192.168.33.96:8080"
+  STAGE_BASE_URL: "https://192.168.33.96"
 
 build:
   stage: build
