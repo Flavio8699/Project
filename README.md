@@ -191,7 +191,7 @@ This is a DevOps project demonstrating the various steps to deliver a product fr
 1. For each repository:
    - Open the repository
    - In the sidebar menu, click on CI/CD
-   - Click on the status of the first (and only) pipeline (accessible here: [frontend](http://192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.frontend.dev/-/pipelines/1) or [backend](http://192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.api.dev/-/pipelines/1))
+   - Click on the status of the first (and only) pipeline (accessible here: [frontend](http://192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.frontend.dev/-/pipelines/2) or [backend](http://192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.api.dev/-/pipelines/1))
    - Manually release the product to the Production Envirionmnt by clicking on the play-button (next to _'release'_) in the _Release_ stage
 2. Go to http://192.168.33.97/
 
