@@ -1,9 +1,21 @@
 #!/bin/bash
 
+# Check if nginx ssl folder exists
+if [ -d /etc/nginx/ssl ]; then
+    # Delete if exists
+    sudo rm -rf /etc/nginx/ssl
+fi
+
+# Create nginx ssl folder
+sudo mkdir /etc/nginx/ssl
+
 # Create nginx configuration file
 conf=$(cat <<'EOF'
 server {
-    listen       80;
+    listen       443 ssl;
+
+    ssl_certificate /etc/nginx/ssl/nginx.crt;
+    ssl_certificate_key /etc/nginx/ssl/nginx.key;
 
     location /staticnews {
         root   /home/vagrant/frontend/news;
@@ -35,6 +47,9 @@ if [ -e /etc/nginx/sites-enabled/default ]; then
   # If it exists, remove it
   sudo rm /etc/nginx/sites-enabled/default
 fi
+
+# Create ssl certificate for nginx
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt -subj "/C=LU/ST=Luxembourg/L=Belval/O=UniLU/CN=e4l"
 
 # Restart nginx
 sudo service nginx restart

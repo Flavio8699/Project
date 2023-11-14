@@ -46,6 +46,7 @@ public class TestQuestionnaire {
 		chromeOptions.addArguments("--no-sandbox");
 		chromeOptions.addArguments("--disable-dev-shm-usage");
 		chromeOptions.addArguments("--window-size=1200x600");
+		chromeOptions.setAcceptInsecureCerts(true);
 
 		chromeOptions.setBinary("/usr/bin/google-chrome");
 		DesiredCapabilities capability = DesiredCapabilities.chrome();

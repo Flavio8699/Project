@@ -20,7 +20,7 @@ cache:
 
 variables:
   GRADLE_OPTS: "-Dorg.gradle.daemon=false"
-  STAGE_BASE_URL: "http://192.168.33.96:8080"
+  STAGE_BASE_URL: "https://192.168.33.96:8080"
 
 build:
   stage: build
@@ -41,6 +41,7 @@ deploy:
     - stage-vm-shell
   script:
     - cp build/libs/*.jar /home/vagrant/artefact-repository
+    - sh /home/vagrant/stage-scripts/configure-backend.sh
     - sh /home/vagrant/stage-scripts/start-backend.sh
 
 acceptance test:
@@ -58,6 +59,7 @@ release:
     - prod-vm-shell
   script:
     - cp build/libs/*.jar /home/vagrant/artefact-repository
+    - sh /home/vagrant/prod-scripts/configure-backend.sh
     - sh /home/vagrant/prod-scripts/start-backend.sh
   when: manual
 
@@ -113,6 +115,12 @@ curl --header "PRIVATE-TOKEN: ${private_token}" -X POST "${base_url}/projects?na
 if [ -d ".git" ]; then
   rm -rf .git
 fi
+
+# Create certificate for backend
+keytool -genkey -noprompt -dname "CN=e4l, OU=ID, O=UniLU, L=Belval, S=Luxembourg, C=LU" -alias server-alias -keyalg RSA -keypass 12345678 -storepass 12345678 -keystore keystore.jks
+
+# Move certificate
+mv keystore.jks src/main/resources/
 
 # Configure git user
 git config --global user.name "Owner Name"
