@@ -41,7 +41,7 @@ This is a DevOps project demonstrating the various steps to deliver a product fr
    mkdir shared-data
    ```
 
-4. Setup the Deployment Pipeline
+4. [Optional] Setup the Deployment Pipeline
    ```shell
    vagrant up
    ```
