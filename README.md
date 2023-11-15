@@ -8,6 +8,8 @@ This is a DevOps project demonstrating the various steps to deliver a product fr
 5. [Staging Environment](#5-staging-environment)
 6. [Production Environment](#6-production-environment)
 
+**❗️ Note:** When accessing the frontend in the Staging or Production Environment for the first time, your Browser will display a security warning. The reason for this is because the website is using a self-signed SSL certificate by an invalid certificate authority. This can be ignored and you have to tell your browser to continue to the website. This allows the images from the backend to be loaded in the frontend.
+
 ## 1. Prerequisites
 
 ### Hardware
@@ -44,7 +46,7 @@ This is a DevOps project demonstrating the various steps to deliver a product fr
    vagrant up
    ```
 
-**Notes:**
+**💬 Notes:**
 - Step 4 starts the CI Server as well as the development, staging and production environments.
 - After following the steps above and completing step 4, the Deployment Pipeline and all its related components are up and running.
 - A detailed explanation for each environment can be found in the following sections.
@@ -69,7 +71,7 @@ This is a DevOps project demonstrating the various steps to deliver a product fr
 5. GitLab-runner based on docker
 
 ### Guidelines
-**Note:** Not necessary if you performed step 4 of Section 2.
+**💬 Note:** Not necessary if you performed step 4 of Section 2.
 
 1. Start the CI Server:
    ```shell
@@ -104,7 +106,7 @@ This is a DevOps project demonstrating the various steps to deliver a product fr
 9. Folder _/lu.uni.e4l.platform.api.dev_ with the backend repository
 
 ### Guidelines
-**Note:** Not necessary if you performed step 4 of Section 2.
+**💬 Note:** Not necessary if you performed step 4 of Section 2.
 
 1. Start the Development Environment VM:
    ```shell
@@ -129,7 +131,7 @@ This is a DevOps project demonstrating the various steps to deliver a product fr
 1. The project repositories of the backend and frontend were successfully created during the provisioning of the Development Environment.
 
 ## 5. Staging Environment
-**Note:** To save resources, the Development Environment VM can be stopped using the command `vagrant halt dev-env`.
+**💬 Note:** To save resources, the Development Environment VM can be stopped using the command `vagrant halt dev-env`.
 
 ### Asset Composition
 1. Vagrant VM specification (Vagrantfile)
@@ -141,7 +143,7 @@ This is a DevOps project demonstrating the various steps to deliver a product fr
 7. Java v1.8
 
 ### Guidelines
-**Note:** Not necessary if you performed step 4 of Section 2.
+**💬 Note:** Not necessary if you performed step 4 of Section 2.
 
 1. Start the Staging Environment VM:
    ```shell
@@ -166,7 +168,7 @@ This is a DevOps project demonstrating the various steps to deliver a product fr
 1. The product was successfully deployed to the Staging Environment.
 
 ## 6. Production Environment
-**Note:** To save resources, the Development and Staging Environment VMs can be stopped using the respective commands `vagrant halt dev-env` and `vagrant halt stage-env`.
+**💬 Note:** To save resources, the Development and Staging Environment VMs can be stopped using the respective commands `vagrant halt dev-env` and `vagrant halt stage-env`.
 
 ### Asset Composition
 1. Vagrant VM specification (Vagrantfile)
@@ -178,7 +180,7 @@ This is a DevOps project demonstrating the various steps to deliver a product fr
 7. Java v1.8
 
 ### Guidelines
-**Note:** Not necessary if you performed step 4 of Section 2.
+**💬 Note:** Not necessary if you performed step 4 of Section 2.
 
 1. Start the Production Environment VM:
    ```shell
