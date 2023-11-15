@@ -53,6 +53,11 @@ This is a DevOps project demonstrating the various steps to deliver a product fr
    - Processor: 2,4 GHz 8-Core Intel Core i9
    - Memory: 32GB
    - Operating System: MacOS Sonoma 14.1
+- The machine specified above took 25 minutes to run the `vagrant up` command. More precisely:
+   - the start of the *CI Server* took *12 minutes*
+   - the start of the *Development Environment VM* took *4 minutes*
+   - the start of the *Staging Environment VM* took *4,5 minutes*
+   - the start of the *Production Environment VM* took *4,5 minutes*
 
 ## 3. CI Server
 
