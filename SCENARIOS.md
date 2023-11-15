@@ -63,7 +63,7 @@ Release a mistake in the frontend to the production and roll-back to the latest 
 
 11. Check if the roll-back was successful, i.e. the navigation bar displays *Energy4Life* again (frontend accessible [here](https://192.168.33.97/)).
 
-## Notes
+## 💬 Notes
 1. On MacOS, to search for *Energy4Life* in the text editor nano, one can press <kbd>Ctrl</kbd> + <kbd>W</kbd>, then type *Energy4Life* and press <kbd>Enter</kbd> to confirm.
 2. On MacOS, to save and exit a file using the text editor nano, you have to press <kbd>Ctrl</kbd> + <kbd>X</kbd> followed by <kbd>Y</kbd> and then <kbd>Enter</kbd> to confirm.
 
@@ -127,5 +127,5 @@ The acceptance test in the pipeline for the backend repository fails due to a mi
 
 8. Check if the acceptance test in the pipeline that was triggered by the commit has failed (pipeline accessible [here](http://192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.api.dev/-/pipelines))
 
-## Notes
+## 💬 Notes
 1. On MacOS, to save and exit a file using the text editor nano, you have to press <kbd>Ctrl</kbd> + <kbd>X</kbd> followed by <kbd>Y</kbd> and then <kbd>Enter</kbd> to confirm.
