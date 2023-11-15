@@ -160,7 +160,7 @@ This is a DevOps project demonstrating the various steps to deliver a product fr
    - In the sidebar menu, click on CI/CD
    - Click on the status of the first (and only) pipeline (accessible here: [frontend](http://192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.frontend.dev/-/pipelines/2) or [backend](http://192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.api.dev/-/pipelines/1))
    - Wait and check if the _Deploy_ stage of the pipeline has passed
-2. Go to http://192.168.33.96/
+2. Go to https://192.168.33.96/
 
 #### Post conditions:
 1. The product was successfully deployed to the Staging Environment.
@@ -198,7 +198,7 @@ This is a DevOps project demonstrating the various steps to deliver a product fr
    - In the sidebar menu, click on CI/CD
    - Click on the status of the first (and only) pipeline (accessible here: [frontend](http://192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.frontend.dev/-/pipelines/2) or [backend](http://192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.api.dev/-/pipelines/1))
    - Manually release the product to the Production Environment by clicking on the play-button (next to _'release'_) in the _Release_ stage
-2. Go to http://192.168.33.97/
+2. Go to https://192.168.33.97/
 
 #### Post conditions:
 1. The product was successfully released to the Production Environment.
