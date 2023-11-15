@@ -1,7 +1,7 @@
 # Scenario 1
 
 ## Goal
-Deploy a mistake in the frontend to the production and roll-back to the latest correct version.
+Release a mistake in the frontend to the production and roll-back to the latest correct version.
 
 ## Pre-conditions
 1. The CI Server is up and running.
@@ -55,13 +55,13 @@ Deploy a mistake in the frontend to the production and roll-back to the latest c
 
 7. Check if the pipeline (accessible [here](http://192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.frontend.dev/-/pipelines)) has successfully deployed the frontend to the staging environment and manually release it to the production environment by executing the release task of the pipeline.
 
-8. Check if the changes are visible in production (frontend accessible [here](http://192.168.33.97/))
+8. Check if the changes are visible in production (frontend accessible [here](https://192.168.33.97/))
 
 9. You detected the mistake in production, i.e. the navigation bar displays *Energy2^2Life* instead of *Energy4Life*.  To fix it, go back to the pipelines (accessible [here](http://192.168.33.94/gitlab/Owner/lu.uni.e4l.platform.frontend.dev/-/pipelines)) and select the latest correct release (by selecting the corresponding pipeline).
 
 10. **Roll-back**: Re-release the frontend by manually executing the release stage of the pipeline again.
 
-11. Check if the roll-back was successful, i.e. the navigation bar displays *Energy4Life* again (frontend accessible [here](http://192.168.33.97/)).
+11. Check if the roll-back was successful, i.e. the navigation bar displays *Energy4Life* again (frontend accessible [here](https://192.168.33.97/)).
 
 ## Notes
 1. On MacOS, to search for *Energy4Life* in the text editor nano, one can press <kbd>Ctrl</kbd> + <kbd>W</kbd>, then type *Energy4Life* and press <kbd>Enter</kbd> to confirm.
