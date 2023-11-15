@@ -31,6 +31,14 @@ server {
         try_files $uri $uri/ =404;
     }
 
+    location /e4lapi {
+        proxy_pass https://192.168.33.96:8080/e4lapi;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
     location / {
         root   /home/vagrant/frontend/html;
         index  index.html index.htm;
