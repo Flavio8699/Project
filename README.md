@@ -26,13 +26,13 @@ This is a DevOps project demonstrating the various steps to deliver a product fr
 1. Go to the folder of your choice and clone the repository:
 
    ```shell
-   git clone https://github.com/Flavio8699/mics-see-project.git
+   git clone https://github.com/Flavio8699/see-devops-project.git
    ```
 
 2. Get into the working directory (root directory of repository):
 
    ```shell
-   cd mics-see-project
+   cd see-devops-project
    ```
 
 3. Create the shared folder in the working directory (to store and share the runner token between the environments):
