@@ -8,7 +8,7 @@ Release a mistake in the frontend to the production and roll-back to the latest 
 2. The Development Environment VM is up and running.
 3. The Staging Environment VM is up and running.
 4. The Production Environment VM is up and running.
-5. There is already a frontend version deployed in production.
+5. There is already a frontend version released in production.
 
 ## Main Success Scenario
 1. SSH into the Development Environment
